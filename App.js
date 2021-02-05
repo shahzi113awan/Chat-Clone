@@ -1,72 +1,35 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
+// import React, {useEffect} from 'react';
+import App from './navigation';
+import firebase from '@react-native-firebase/app';
+import Auth from '@react-native-firebase/auth';
+import firestore from '@react-native-firebase/firestore';
+import {MenuProvider} from 'react-native-popup-menu';
+import store from './src/Store';
+import {Provider} from 'react-redux';
 
-import React from 'react';
-import {
-  
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
- 
-} from 'react-native';
-
-import {
- 
-  Colors,
- 
-} from 'react-native/Libraries/NewAppScreen';
-
-const App = () => React$Node = () => {
-  return (
-    <>
-      <Text>HOLA</Text>
-    </>
-  );
+var firebaseConfig = {
+  apiKey: 'AIzaSyAOzshP1Fw3o6sjg4pYf0rxba_9TSuwGTw',
+  authDomain: 'chat-1ac64.firebaseapp.com',
+  projectId: 'chat-1ac64',
+  storageBucket: 'chat-1ac64.appspot.com',
+  messagingSenderId: '309789867707',
+  appId: '1:309789867707:web:08129d094076669df7f39e',
+  measurementId: 'G-Y9TWZK73ME',
 };
 
-const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
-});
-
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+  firebase.firestore();
+}
+export {firebase, Auth};
+const App = () =>
+  (React$Node = () => {
+    return (
+      <Provider store={store}>
+        <MenuProvider>
+          <App />
+        </MenuProvider>
+      </Provider>
+    );
+  });
 export default App;
