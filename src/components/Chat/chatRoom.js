@@ -27,7 +27,6 @@ import {audio} from '../../_actions/audioAction';
 import Sound from 'react-native-sound';
 
 const ChatRoom = ({isDark, dispatch, roomId, user}) => {
-  
   let imgIndex = 0;
   const scrollViewRef = useRef();
   const messageIdGenerator = () => {
@@ -189,6 +188,7 @@ const ChatRoom = ({isDark, dispatch, roomId, user}) => {
         {name: 'customOptionKey', title: 'Choose Photo from Custom Option'},
       ],
       storageOptions: {
+        privateDirectory: true,
         skipBackup: true,
         path: 'SGI',
       },

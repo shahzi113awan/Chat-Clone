@@ -342,6 +342,7 @@ function Example({roomId, userDb, navigation}) {
         {name: 'customOptionKey', title: 'Choose Photo from Custom Option'},
       ],
       storageOptions: {
+         privateDirectory: true,
         skipBackup: true,
         path: 'SGI',
       },

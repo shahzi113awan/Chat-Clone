@@ -17,7 +17,7 @@ import sender from '../../../assets/images/sender.jpg';
 import {firebase, Auth} from '../../../App';
 import {changeChat} from '../../_actions/chatActions';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import CreateGroupModal from '../components/Authentication/Modal/CreateGroupModal';
+import CreateGroupModal from '../Modal/CreateGroupModal';
 import {viewCreateGroupModal} from '../../_actions/modalActions';
 
 const MenuIcons = ({isDark, viewCreateGroupModal}) => {

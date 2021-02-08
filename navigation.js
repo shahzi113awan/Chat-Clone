@@ -14,7 +14,7 @@ import Login from './src/components/Authentication/login';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {firebase, Auth} from './App';
- 
+
 import ChatInbox from './src/components/Chat/chatInbox';
 import sender from './assets/images/sender.jpg';
 import CreateGroup from './src/components/Chat/CreateGroup';
@@ -31,6 +31,7 @@ import {viewModal} from './src/_actions/modalActions';
 import {setUser} from './src/_actions/authActions';
 import EditGroup from './src/components/Chat/EditGroup';
 import GroupInfo from './src/components/Chat/GroupInfo';
+import MenuIcon from 'react-native-vector-icons/Feather';
 
 const Stack = createStackNavigator();
 
@@ -53,9 +54,6 @@ function App({viewModal, darkTheme, lightTheme, isDark, setUser, roomName}) {
   const [dummy, setDummy] = useState([{}]);
 
   const New = ({navigation}) => {
-
-     
-
     const GroupInfoOption = {
       headerTitle: (
         <View
@@ -101,7 +99,6 @@ function App({viewModal, darkTheme, lightTheme, isDark, setUser, roomName}) {
                 fontSize: 20,
                 fontWeight: 'bold',
               }}>
-              
               Group Edit
             </Text>
           </View>
@@ -157,7 +154,7 @@ function App({viewModal, darkTheme, lightTheme, isDark, setUser, roomName}) {
                 </View>
               }
             />
-             <MenuOption
+            <MenuOption
               onSelect={(e) => goToPedagogico(e)}
               text={
                 <View style={isDark ? styles.menuViewDark : styles.menuView}>
@@ -171,7 +168,7 @@ function App({viewModal, darkTheme, lightTheme, isDark, setUser, roomName}) {
                 </View>
               }
             />
-             <MenuOption
+            <MenuOption
               onSelect={(e) => goToFinanciero(e)}
               text={
                 <View style={isDark ? styles.menuViewDark : styles.menuView}>
@@ -238,14 +235,13 @@ function App({viewModal, darkTheme, lightTheme, isDark, setUser, roomName}) {
       headerTitleStyle: {alignSelf: 'center'},
       headerStyle: isDark ? styles.headerTitleDark : styles.headerTitle,
     };
-   
-   
+
     const ChatInboxStyle = {
       headerTintColor: 'white',
       title: '',
       // headerTransparent: true,
       headerStyle: isDark ? styles.ChatInboxHeaderDark : styles.ChatInboxHeader,
-    }; 
+    };
     const ChatName = {
       headerTintColor: isDark ? 'white' : '',
       title: 'Francine Riley',
@@ -253,7 +249,7 @@ function App({viewModal, darkTheme, lightTheme, isDark, setUser, roomName}) {
       headerTitleStyle: {alignSelf: 'center'},
       headerStyle: isDark ? styles.headerTitleDark : styles.headerTitle,
     };
-  
+
     const RoomName = {
       headerRight: () => (
         <Menu>
@@ -278,7 +274,7 @@ function App({viewModal, darkTheme, lightTheme, isDark, setUser, roomName}) {
                     style={isDark ? styles.menuIconDark : styles.menuIcon}
                   /> */}
                   <Text style={isDark ? styles.menuTextDark : styles.menuText}>
-                   Edit Group
+                    Edit Group
                   </Text>
                 </View>
               }
@@ -292,11 +288,10 @@ function App({viewModal, darkTheme, lightTheme, isDark, setUser, roomName}) {
                     style={isDark ? styles.menuIconDark : styles.menuIcon}
                   /> */}
                   <Text style={isDark ? styles.menuTextDark : styles.menuText}>
-                   Group Info
+                    Group Info
                   </Text>
                 </View>
               }></MenuOption>
-         
           </MenuOptions>
         </Menu>
       ),
@@ -317,13 +312,15 @@ function App({viewModal, darkTheme, lightTheme, isDark, setUser, roomName}) {
             />
           </View>
           <View style={{paddingLeft: 10}}>
-            <Text style={{fontSize: 20, fontWeight: 'bold', color:'white'}}>{roomName}</Text>
+            <Text style={{fontSize: 20, fontWeight: 'bold', color: 'white'}}>
+              {roomName}
+            </Text>
           </View>
         </View>
       ),
       headerTintColor: isDark ? 'white' : 'white',
       // headerTransparent: true,
-      backgroundColor: isDark? '#21223E' : 'white',
+      backgroundColor: isDark ? '#21223E' : 'white',
       headerTitleStyle: {},
       headerStyle: isDark ? styles.headerChatDark : styles.headerChat,
     };
@@ -378,15 +375,27 @@ function App({viewModal, darkTheme, lightTheme, isDark, setUser, roomName}) {
     };
     return (
       <Stack.Navigator initialRouteName="Login">
-        <Stack.Screen name="Login" component={Students} options={Less} />
         <Stack.Screen name="Chat" component={Chat} options={RoomName} />
-        <Stack.Screen name="CreateGroup" component={CreateGroup} options={GroupOption} />
-       <Stack.Screen
-          name="ChatInbox"
+        <Stack.Screen
+          name="CreateGroup"
+          component={CreateGroup}
+          options={GroupOption}
+        />
+        <Stack.Screen
+          name="Login"
           component={ChatInbox}
           options={ChatInboxStyle}
-        />   <Stack.Screen name="EditGroup" component={EditGroup} options={GroupEditOption}/>
-        <Stack.Screen name="GroupInfo" component={GroupInfo} options={GroupInfoOption} />
+        />
+        <Stack.Screen
+          name="EditGroup"
+          component={EditGroup}
+          options={GroupEditOption}
+        />
+        <Stack.Screen
+          name="GroupInfo"
+          component={GroupInfo}
+          options={GroupInfoOption}
+        />
       </Stack.Navigator>
     );
   };
@@ -464,8 +473,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#4D7CFE',
   },
 
-
-
   ChatInboxHeaderDark: {
     height: 50,
     color: 'white',
@@ -504,7 +511,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0,
     elevation: 0,
     backgroundColor: '#21223E',
-    opacity:0.9,
+    opacity: 0.9,
   },
   headerGroup: {
     // height: 50,
@@ -526,7 +533,7 @@ const styles = StyleSheet.create({
     borderColor: 'lightgrey',
   },
   mainmenuViewDark: {padding: 10, backgroundColor: '#21223E'},
-  mainmenuView: {padding: 10, backgroundColor: 'white', },
+  mainmenuView: {padding: 10, backgroundColor: 'white'},
   menuView: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -563,7 +570,6 @@ const styles = StyleSheet.create({
   options: {
     fontSize: 30,
     marginLeft: '-20%',
-    
   },
   optionsDark: {
     color: 'white',
@@ -573,8 +579,7 @@ const styles = StyleSheet.create({
   optionsChat: {
     fontSize: 30,
     marginLeft: '-20%',
-    color:'white'
-  
+    color: 'white',
   },
   optionsChatDark: {
     color: 'white',

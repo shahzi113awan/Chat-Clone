@@ -12,7 +12,6 @@ import {
 } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import CheckBox from '@react-native-community/checkbox';
-import {Picker} from '@react-native-picker/picker';
 import {connect} from 'react-redux';
 import {hideCreateGroupModal} from '../../_actions/modalActions';
 import sender from '../../../assets/images/sender.jpg';

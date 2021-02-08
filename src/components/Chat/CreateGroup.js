@@ -12,11 +12,8 @@ import {
   ImageBackground,
   FlatList,
 } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/Feather';
 import Icon2 from 'react-native-vector-icons/AntDesign';
-import {createDrawerNavigator} from '@react-navigation/drawer';
-import {NavigationContainer} from '@react-navigation/native';
 import bgImage from '../../../assets/images/bg-image.jpg';
 import sender from '../../../assets/images/sender.jpg';
 

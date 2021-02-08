@@ -10,9 +10,7 @@ import {
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
-import DropDownPicker from 'react-native-dropdown-picker';
-import CheckBox from '@react-native-community/checkbox';
-import {Picker} from '@react-native-picker/picker';
+
 import {connect} from 'react-redux';
 import {hideAdminModal} from '../../_actions/modalActions';
 import sender from '../../../assets/images/sender.jpg';
@@ -74,18 +72,27 @@ const AdminModal = ({visible, navigation, hideAdminModal, isDark}) => {
             <ScrollView>
               <View style={{flexDirection: 'column', alignItems: 'center'}}>
                 <Image source={sender} style={styles.image} />
-                <Text style={isDark ? styles.nameDark : styles.name}>Professors</Text>
+                <Text style={isDark ? styles.nameDark : styles.name}>
+                  Professors
+                </Text>
                 <Text style={{color: 'grey'}}>Parent</Text>
-                <Text style={isDark ? styles.roleDark: styles.role}>Add Role</Text>
-                <View style={{flexDirection:'row', justifyContent:'space-between', padding:5}}>
-                  <Text style={{color:'#4D7CFE'}}>   Make Group Admin</Text>
-                  
-                    <AntDesign
-                      name={'checkcircle'}
-                      size={20}
-                      color={'green'}
-                      style={{paddingLeft:10}}
-                    />
+                <Text style={isDark ? styles.roleDark : styles.role}>
+                  Add Role
+                </Text>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    padding: 5,
+                  }}>
+                  <Text style={{color: '#4D7CFE'}}> Make Group Admin</Text>
+
+                  <AntDesign
+                    name={'checkcircle'}
+                    size={20}
+                    color={'green'}
+                    style={{paddingLeft: 10}}
+                  />
                 </View>
               </View>
             </ScrollView>
@@ -105,14 +112,10 @@ const styles = StyleSheet.create({
     height: 100,
     width: 100,
   },
-  name:{fontSize: 23, color:'black'},
-  nameDark:{fontSize: 23, color:'white'},
-  role:{padding:5, color:'black'},
-  roleDark:{padding:5, color:'white'},
-
-
-
-
+  name: {fontSize: 23, color: 'black'},
+  nameDark: {fontSize: 23, color: 'white'},
+  role: {padding: 5, color: 'black'},
+  roleDark: {padding: 5, color: 'white'},
 
   title: {},
   titleDark: {
